@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id = "@+id/device_table"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1e1e1e"
+    android:orientation="vertical"
+    tools:context=".ActivityTable">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#dedcd2"
+        android:stretchColumns="*" >
+
+        <TableRow
+            android:layout_margin="0.5dip"
+            android:background="#dedcd2" >
+
+            <TextView
+                android:background="#ffffff"
+                android:gravity="center"
+                android:text="年度"
+                android:textSize="20dip"
+                android:textStyle="bold" />
+
+            <TextView
+                android:gravity="center"
+                android:background="#ffffff"
+                android:text="本金"
+                android:textSize="20dip"
+                android:textStyle="bold" />
+
+            <TextView
+                android:gravity="center"
+                android:background="#ffffff"
+                android:text="利息"
+                android:textSize="20dip"
+                android:textStyle="bold" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tablelayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#dedcd2"
+        android:stretchColumns="*" >
+
+
+    </TableLayout>
+    <Button
+        android:id="@+id/generate_table"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="动态生成表格" />
+
+    <Button
+        android:id="@+id/table_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" 表格数据 " />
+
+</LinearLayout>

@@ -1,2 +1,2 @@
 # kotlin_tablelayout
-用kotlin语言添加动态表格的最简单代码
+用kotlin语言添加动态表格的最简单代码，并对表格进行相关事件监听
