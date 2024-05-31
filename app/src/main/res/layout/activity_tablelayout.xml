@@ -21,21 +21,27 @@
             <TextView
                 android:background="#ffffff"
                 android:gravity="center"
-                android:text="年度"
+                android:text=" 序号 "
                 android:textSize="20dip"
                 android:textStyle="bold" />
 
             <TextView
                 android:gravity="center"
                 android:background="#ffffff"
-                android:text="本金"
+                android:text="设备名称"
                 android:textSize="20dip"
                 android:textStyle="bold" />
 
             <TextView
                 android:gravity="center"
                 android:background="#ffffff"
-                android:text="利息"
+                android:text="设备编号"
+                android:textSize="20dip"
+                android:textStyle="bold" />
+            <TextView
+                android:gravity="center"
+                android:background="#ffffff"
+                android:text="选择设备"
                 android:textSize="20dip"
                 android:textStyle="bold" />
         </TableRow>

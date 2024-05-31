@@ -4,6 +4,8 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.Toast
@@ -13,11 +15,13 @@ import com.example.kotlin_tablelayout.databinding.ActivityTablelayoutBinding
 class ActivityTable: AppCompatActivity() {
     private  lateinit  var dataBind: ActivityTablelayoutBinding
     private  lateinit var table:TableLayout
+    private lateinit var rg:RadioGroup
     private var count:Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dataBind = ActivityTablelayoutBinding.inflate(layoutInflater)
         setContentView(dataBind.root)
+        rg = RadioGroup(this)
         init()
     }
     private fun init(){
@@ -35,26 +39,45 @@ class ActivityTable: AppCompatActivity() {
         var tb:TableLayout = dataBind.tablelayout
         var tr:TableRow = TableRow(this)
         tr.setBackgroundColor(Color.WHITE)
-        var year = EditText(this)
-        var cash = EditText(this)
-        var time = EditText(this)
+        var seq = EditText(this)
+        var dev_num = EditText(this)
+        var dev_name = EditText(this)
+        var dev_sel =  RadioButton(this)
 
-        year.setText("year:${count}")
-        cash.setText("cash:${count}")
-        time.setText("time:${count}")
+        seq.setText("seq:${count}")
+        dev_num.setText("devnum:${count}")
+        dev_name.setText("devname:${count}")
+        dev_sel.setText("选择：${count}")
 
-        year.setOnClickListener {
+        dev_sel.tag = "row_num_${count}"
+
+
+        seq.setOnClickListener {
             Toast.makeText(this, "点击${count}行第1列",Toast.LENGTH_LONG).show()
         }
-        cash.setOnClickListener {
+        dev_num.setOnClickListener {
             Toast.makeText(this, "点击${count}行第2列",Toast.LENGTH_LONG).show()
         }
-        time.setOnClickListener {
+        dev_name.setOnClickListener {
             Toast.makeText(this, "点击${count}行第3列",Toast.LENGTH_LONG).show()
         }
-        tr.addView(year)
-        tr.addView(cash)
-        tr.addView(time)
+        dev_sel.setOnClickListener {
+            Toast.makeText(this, "点击${count}行第4列",Toast.LENGTH_LONG).show()
+            var tag = it.tag
+            val tb:TableLayout = dataBind.tablelayout
+            for(i in 0 until tb.childCount){
+                val tr = tb.getChildAt(i) as TableRow
+                val rb = tr.getChildAt(3) as RadioButton
+                if(rb.tag != it.tag){
+                    rb.isChecked = false
+                }
+            }
+        }
+        tr.addView(seq)
+        tr.addView(dev_num)
+        tr.addView(dev_name)
+        tr.addView(dev_sel)
+        //tr.dividerDrawable = "middle|beginning|end"
         val lp = TableLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT)
         tb.addView(tr, lp)
